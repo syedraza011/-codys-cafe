@@ -1,11 +1,21 @@
-const Sequelize = require('sequelize')
-const db = require('./database')
-const Coffee = require('./coffee.model')
+const Sequelize = require("sequelize");
+const db = require("./database");
+const Coffee = require("./coffee.model");
+const sequelize = require("sequelize");
 
-const Pug = db.define('pugs', {
+const Pug = db.define("pugs", {
   // your code here
-  name: Sequelize.STRING,
-  age: Sequelize.INTEGER,
-})
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  age: {
+    type: Sequelize.INTEGER,
+    defaultValue: "0",
+  },
+  biography: {
+    type: sequelize.TEXT,
+  },
+});
 
-module.exports = Pug
+module.exports = Pug;
