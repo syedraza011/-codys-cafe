@@ -17,5 +17,8 @@ const Pug = db.define("pugs", {
     type: sequelize.TEXT,
   },
 });
+// await function isPuppy()=> {
+
+// }
 
 module.exports = Pug;

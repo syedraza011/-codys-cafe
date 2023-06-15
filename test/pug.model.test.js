@@ -47,7 +47,7 @@ describe('Pug model', () => {
 
     // Make sure that you define the associations in `server/models/index.js`!
     // Note: this requires a working Coffee model
-    it.only('has a one-many relationship with Coffee, via `favoriteCoffee`', async () => {
+    it('has a one-many relationship with Coffee, via `favoriteCoffee`', async () => {
       const pug = await Pug.create({name: 'Joe'})
       const coffee = await Coffee.create({
         name: 'Puppaccino',
@@ -61,7 +61,7 @@ describe('Pug model', () => {
 
     // Make sure that you define the associations in `server/models/index.js`!
     // Note: be careful - the pluralization is important here!
-    it.only('has a many-many relationship with other Pugs as `friends`', async () => {
+    it('has a many-many relationship with other Pugs as `friends`', async () => {
       const penny = await Pug.create({name: 'Penny'})
       const doug = await Pug.create({name: 'Doug'})
       await penny.addFriend(doug)
@@ -72,7 +72,7 @@ describe('Pug model', () => {
     })
   })
 
-  xdescribe('instance method: isPuppy', () => {
+  describe('instance method: isPuppy', () => {
     it('returns true if a pug is a puppy (less than one year old)', async () => {
       const pup = await Pug.create({name: 'Pupster', age: 0})
       const notPup = await Pug.create({name: 'Grouchy', age: 2})
@@ -82,7 +82,7 @@ describe('Pug model', () => {
     })
   })
 
-  xdescribe('instance method: shortBio', () => {
+  describe('instance method: shortBio', () => {
     // Note: the first sentence might be defined as all of the text
     // leading up to but not including the first period,
     // question mark, or exclamation point.
@@ -109,7 +109,7 @@ describe('Pug model', () => {
   })
 
   // Check out: http://docs.sequelizejs.com/manual/tutorial/querying.html#relations-associations
-  xdescribe('class method: `findByCoffee`', () => {
+  describe('class method: `findByCoffee`', () => {
     it('finds all pugs with the given favorite coffee', async () => {
       const latte = await Coffee.create({name: 'latte'})
       const cortado = await Coffee.create({name: 'cortado'})
@@ -141,7 +141,7 @@ describe('Pug model', () => {
     })
   })
 
-  xdescribe('hooks', () => {
+  describe('hooks', () => {
     it('capitalizes a pug\'s name before saving it to the database', async () => {
       const pug = await Pug.create({name: 'joe'})
 
